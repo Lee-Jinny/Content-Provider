@@ -27,6 +27,10 @@ class MainRepositoryImpl(
         )
     }
 
+    override suspend fun removeFavorite(contact: Contact) {
+        contactDao.delete(contact.id)
+    }
+
     override fun getFavoriteContacts(): Flow<List<Contact>> {
         return contactDao.getAll().map { entities ->
             entities.map {

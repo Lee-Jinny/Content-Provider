@@ -9,5 +9,7 @@ interface MainRepository {
 
     suspend fun toggleFavorite(contact: Contact)
 
+    suspend fun removeFavorite(contact: Contact)
+
     fun getFavoriteContacts(): Flow<List<Contact>>
 }
