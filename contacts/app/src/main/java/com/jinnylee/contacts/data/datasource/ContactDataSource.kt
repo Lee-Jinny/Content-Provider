@@ -3,6 +3,7 @@ package com.jinnylee.contacts.data.datasource
 import android.content.ContentResolver
 import android.provider.ContactsContract
 import com.jinnylee.contacts.domain.model.Contact
+import com.jinnylee.contacts.util.KoreanUtils
 
 class ContactsDataSource(
     private val contentResolver: ContentResolver
@@ -25,13 +26,13 @@ class ContactsDataSource(
             val numberIdx = it.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)
 
             while (it.moveToNext()) {
-                val name = it.getString(nameIdx)
+                val name = it.getString(nameIdx) ?: ""
                 result.add(
                     Contact(
                         id = it.getLong(idIdx),
                         name = name,
-                        phoneNumber = it.getString(numberIdx),
-                        initial = name.first().toString()
+                        phoneNumber = it.getString(numberIdx) ?: "",
+                        initial = KoreanUtils.getInitialSound(name)
                     )
                 )
             }

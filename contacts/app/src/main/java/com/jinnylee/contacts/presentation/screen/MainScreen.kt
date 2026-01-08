@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.jinnylee.contacts.domain.model.Contact
 import com.jinnylee.contacts.presentation.component.ContactListItem
 import com.jinnylee.contacts.presentation.component.ContactSearchBar
@@ -34,7 +35,9 @@ fun MainScreen(
     }
 
     Scaffold(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(top = 24.dp),
         topBar = {
             ContactSearchBar(
                 query = state.searchQuery,

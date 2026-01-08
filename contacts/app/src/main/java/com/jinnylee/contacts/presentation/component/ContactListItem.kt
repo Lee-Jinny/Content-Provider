@@ -38,7 +38,7 @@ fun ContactListItem(
             contentAlignment = Alignment.Center
         ) {
             Text(
-                text = contact.initial,
+                text = contact.initial.take(1),
                 style = MaterialTheme.typography.titleMedium,
                 color = MaterialTheme.colorScheme.onPrimaryContainer
             )
