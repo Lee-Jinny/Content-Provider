@@ -46,13 +46,21 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    fun updateSearchQuery(query: String) {
+    fun onAction(action: MainAction) {
+        when (action) {
+            is MainAction.UpdateSearchQuery -> updateSearchQuery(action.query)
+            is MainAction.Search -> updateSearchQuery(action.query)
+            is MainAction.ToggleFavorite -> toggleFavorite(action.contact)
+        }
+    }
+
+    private fun updateSearchQuery(query: String) {
         _state.update {
             it.copy(searchQuery = query)
         }
     }
 
-    fun toggleFavorite(contact: Contact) {
+    private fun toggleFavorite(contact: Contact) {
         val isFavorite = _state.value.favoriteContacts.contains(contact.id)
         viewModelScope.launch {
             toggleFavoriteUseCase(contact, isFavorite)
