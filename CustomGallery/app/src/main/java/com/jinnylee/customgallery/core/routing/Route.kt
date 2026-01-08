@@ -1,6 +1,7 @@
 package com.jinnylee.customgallery.core.routing
 
 import androidx.navigation3.runtime.NavKey
+import com.jinnylee.customgallery.domain.model.GalleryImage
 import kotlinx.serialization.Serializable
 
 sealed interface Route : NavKey {
@@ -8,5 +9,5 @@ sealed interface Route : NavKey {
     data object Gallery : Route
 
     @Serializable
-    data object Detail : Route
+    data class Detail(val image: GalleryImage) : Route
 }
