@@ -1,0 +1,33 @@
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+.vscode/
+
+# Gradle
+.gradle/
+build/
+*/build/
+local.properties
+.gradle-wrapper/
+
+# Kotlin
+.kotlin/
+
+# Android
+captures/
+.externalNativeBuild/
+.cxx/
+*.keystore
+!debug.keystore
+*.apk
+*.aar
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+*.log
