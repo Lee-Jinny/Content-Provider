@@ -1,4 +1,4 @@
-package com.jinnylee.customgallery.data.paging
+package com.jinnylee.customgallery.data.media
 
 import android.content.ContentResolver
 import android.content.ContentUris
@@ -11,7 +11,7 @@ import com.jinnylee.customgallery.domain.model.GalleryImage
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class GalleryPagingSource(
+class MediaPagingSource(
     private val contentResolver: ContentResolver
 ) : PagingSource<Int, GalleryImage>() {
 
