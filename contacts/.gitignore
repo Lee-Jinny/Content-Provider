@@ -1,0 +1,36 @@
+*.iml
+.gradle
+/local.properties
+/.idea/
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# Build artifacts
+**/build/
+*.apk
+*.aar
+*.ap_
+*.dex
+*.class
+
+# Key files
+*.jks
+*.keystore
+*.properties
+!gradle.properties
+!local.properties
+
+# Log files
+*.log
+
+# Crashlytics
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+
+# OS files
+Thumbs.db
