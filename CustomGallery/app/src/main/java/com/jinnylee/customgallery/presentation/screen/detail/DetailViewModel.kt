@@ -3,7 +3,7 @@ package com.jinnylee.customgallery.presentation.screen.detail
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jinnylee.customgallery.domain.model.GalleryImage
-import com.jinnylee.customgallery.domain.repository.GalleryRepository
+import com.jinnylee.customgallery.domain.usecase.GetImageExifUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,7 +17,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailViewModel @Inject constructor(
-    private val repository: GalleryRepository
+    private val getImageExifUseCase: GetImageExifUseCase
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(DetailState())
@@ -29,7 +29,7 @@ class DetailViewModel @Inject constructor(
     fun setImage(image: GalleryImage) {
         _state.update { it.copy(image = image, isLoading = true) }
         viewModelScope.launch {
-            val exif = repository.getExif(image.uri)
+            val exif = getImageExifUseCase(image.uri)
             _state.update { it.copy(exif = exif, isLoading = false) }
         }
     }
