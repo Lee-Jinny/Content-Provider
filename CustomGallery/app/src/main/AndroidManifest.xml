@@ -38,7 +38,7 @@
         </activity>
 
         <provider
-            android:name="androidx.core.content.FileProvider"
+            android:name=".core.provider.GalleryFileProvider"
             android:authorities="${applicationId}.provider"
             android:exported="false"
             android:grantUriPermissions="true">

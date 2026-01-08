@@ -7,6 +7,7 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.jinnylee.customgallery.data.exif.ExifDataReader
 import com.jinnylee.customgallery.data.media.MediaPagingSource
+import com.jinnylee.customgallery.data.media.MediaStoreDataSource
 import com.jinnylee.customgallery.domain.model.GalleryImage
 import com.jinnylee.customgallery.domain.model.ImageExif
 import com.jinnylee.customgallery.domain.repository.GalleryRepository
@@ -14,7 +15,7 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class GalleryRepositoryImpl @Inject constructor(
-    private val contentResolver: ContentResolver,
+    private val mediaStoreDataSource: MediaStoreDataSource,
     private val exifDataReader: ExifDataReader
 ) : GalleryRepository {
 
@@ -24,7 +25,7 @@ class GalleryRepositoryImpl @Inject constructor(
                 pageSize = 20,
                 enablePlaceholders = false
             ),
-            pagingSourceFactory = { MediaPagingSource(contentResolver) }
+            pagingSourceFactory = { MediaPagingSource(mediaStoreDataSource) }
         ).flow
     }
 
