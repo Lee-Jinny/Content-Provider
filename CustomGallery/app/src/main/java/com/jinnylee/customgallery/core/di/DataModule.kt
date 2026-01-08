@@ -1,7 +1,7 @@
-package com.jinnylee.customgallery.di
+package com.jinnylee.customgallery.core.di
 
 import android.content.Context
-import com.jinnylee.customgallery.data.repository.GalleryRepositoryImpl
+import com.jinnylee.customgallery.data.repository.GalleryRepositoyImpl
 import com.jinnylee.customgallery.domain.repository.GalleryRepository
 import dagger.Binds
 import dagger.Module
@@ -18,7 +18,7 @@ abstract class RepositoryModule {
     @Binds
     @Singleton
     abstract fun bindGalleryRepository(
-        galleryRepositoryImpl: GalleryRepositoryImpl
+        galleryRepositoryImpl: GalleryRepositoyImpl
     ): GalleryRepository
 }
 
